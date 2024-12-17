@@ -20,19 +20,7 @@ class FenwickTree:
 
 
 
-n=int(input())
-while n>0:
-    m=int(input())
-    num=[0]+list(int(x) for x in input().split())
-    ft=FenwickTree(m)
-    for i in range (1,m+1):
-        if num[i]>ft.tree[i-1]:
-            ft.update(i,num[i])
-        else:
-            break
 
-    n-=1
-    print(ft.range_sum(1,m))
 
 
   
