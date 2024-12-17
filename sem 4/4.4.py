@@ -20,8 +20,21 @@ plt.plot(a1,a3, 'r^-')
 plt.plot(a1,a4,'g^-')
 plt.plot(a2,a3,color=[0.1,0.7,0.2],marker='.')
 plt.plot(a2,a4,color=[0.8,0.7,0.2],marker='.')
+
 plt.plot(a3,a4,color=[0.7,0.1,0.7],marker='.')
 
+
+def MNK(x,y):
+    x=np.array(x)
+    y=np.array(y)
+    a=((x*y).mean()-x.mean()*y.mean())/((x**2).mean()-x.mean()**2)
+    b=y.mean()-a*x.mean()
+    return a,b
+
+x = np.array([0,12]) # две точки аппроксимирующей прямой
+
+plt.plot(x, MNK(a3,a4)[0]*x+MNK(a3,a4)[1],"-",color=[0.7,0,0.7],linewidth=3)
+plt.plot(x, MNK(a1,a4)[0]*x+MNK(a1,a4)[1],"g-",linewidth=3)
 plt.xlabel('X Axis')
 plt.ylabel('Y Axis')
 
